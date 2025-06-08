@@ -19,7 +19,7 @@ class Calculator:
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
             ['0', '.', 'C', '+'],
-            ['=']
+            ['Backspace', '=']
         ]
 
         for row in buttons:
@@ -42,6 +42,8 @@ class Calculator:
                 self.expression = str(eval(self.expression))
             except Exception:
                 self.expression = "에러"
+        elif char == 'Backspace':
+            self.expression = self.expression[:-1]
         else:
             self.expression += str(char)
 
