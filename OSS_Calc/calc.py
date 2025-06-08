@@ -1,4 +1,5 @@
 import tkinter as tk
+import math
 
 
 class Calculator:
@@ -19,7 +20,7 @@ class Calculator:
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
             ['0', '.', 'C', '+'],
-            ['=']
+            ['π', '=']
         ]
 
         for row in buttons:
@@ -39,7 +40,8 @@ class Calculator:
             self.expression = ""
         elif char == '=':
             try:
-                self.expression = str(eval(self.expression))
+                eval_expression = self.expression.replace('π', str(math.pi))
+                self.expression = str(eval(eval_expression))
             except Exception:
                 self.expression = "에러"
         else:
